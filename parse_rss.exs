@@ -1,7 +1,12 @@
+Mix.install([
+  {:elixir_xml_to_map, "~> 3.0.0"},
+  {:date_time_parser, "~> 1.1.3"}
+])
+
 defmodule ParseRSS do
-  def parse do
+  def parse(file) do
     parsedRss =
-      with {:ok, rss} <- File.read("rss.xml") do
+      with {:ok, rss} <- File.read(file) do
         XmlToMap.naive_map(rss)
       end
 
@@ -58,3 +63,6 @@ defmodule ParseRSS do
     hours * 3600 + minutes * 60 + seconds
   end
 end
+
+[file] = System.argv()
+ParseRSS.parse(file)

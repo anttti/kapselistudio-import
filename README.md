@@ -2,4 +2,4 @@
 
 Given an RSS XML file, generate SQL import clauses for Kapselistudio.
 
-Expects to find an `rss.xml` file in the project root, writes the insert clauses to `imports.sql`.
+Just run `elixir parse_rss.exs path/to/rss.xml` and it will write an `inserts.sql` file with the SQL.
